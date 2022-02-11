@@ -3,7 +3,7 @@ let userScore = 0;
 let computerScore = 0;
 let tieScore = 0;
 
-function getComputerPlay() {
+function getComputerPick() {
   let computerPick = Math.floor(Math.random() * 3) + 1;
   if (computerPick == 1) return `ROCK`;
   else if (computerPick == 2) return `PAPER`;
@@ -18,7 +18,7 @@ function getPlayerPick() {
 }
 
 function playRound(computerSelection, playerSelection) {
-  computerSelection = getComputerPlay();
+  computerSelection = getComputerPick();
   playerSelection = getPlayerPick();
   if (computerSelection == playerSelection) {
     tieScore++;
