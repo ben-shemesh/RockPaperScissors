@@ -4,18 +4,12 @@ let computerScore = 0;
 let tieScore = 0;
 
 function computerPlay() {
-  let computerNumber = Math.floor(Math.random() * 3) + 1;
-  switch (computerNumber) {
-    case 1:
-      return `ROCK`;
-      break;
-    case 2:
-      return `PAPER`;
-      break;
-    case 3:
-      return `SCISSORS`;
-  }
+  let computerPick = Math.floor(Math.random() * 3) + 1;
+  if (computerPick == 1) return `ROCK`;
+  else if (computerPick == 2) return `PAPER`;
+  else return `SCISSORS`;
 }
+
 function playerPlay() {
   let playerPick = prompt(
     `Choose your weapon: "Rock" "Paper" or "Scissors".`
@@ -62,7 +56,6 @@ function scoreChecker() {
     );
   }
 }
-
 function game() {
   while (round < 6) {
     playRound();
