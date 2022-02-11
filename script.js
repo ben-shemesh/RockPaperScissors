@@ -3,14 +3,14 @@ let userScore = 0;
 let computerScore = 0;
 let tieScore = 0;
 
-function computerPlay() {
+function getComputerPlay() {
   let computerPick = Math.floor(Math.random() * 3) + 1;
   if (computerPick == 1) return `ROCK`;
   else if (computerPick == 2) return `PAPER`;
   else return `SCISSORS`;
 }
 
-function playerPlay() {
+function getPlayerPick() {
   let playerPick = prompt(
     `Choose your weapon: "Rock" "Paper" or "Scissors".`
   ).toUpperCase();
@@ -18,8 +18,8 @@ function playerPlay() {
 }
 
 function playRound(computerSelection, playerSelection) {
-  computerSelection = computerPlay();
-  playerSelection = playerPlay();
+  computerSelection = getComputerPlay();
+  playerSelection = getPlayerPick();
   if (computerSelection == playerSelection) {
     tieScore++;
     alert(
@@ -56,11 +56,11 @@ function scoreChecker() {
     );
   }
 }
-function game() {
+function playGame() {
   while (round < 6) {
     playRound();
     round++;
   }
   scoreChecker();
 }
-game();
+playGame();
