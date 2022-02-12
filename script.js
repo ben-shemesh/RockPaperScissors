@@ -26,8 +26,8 @@ function playRound(computerSelection, playerSelection) {
       `It's a tie 🪢 : Your Score: ${userScore}, Computer's Score: ${computerScore}. It's the ${round} round.`
     );
   } else if (
-    (playerSelection == `ROCK` && computerSelection == `PAPER`) ||
-    (playerSelection == "PAPER" && computerSelection == `SCISSORS`) ||
+    (playerSelection == `ROCK` && computerSelection == `SCISSORS`) ||
+    (playerSelection == "PAPER" && computerSelection == `ROCK`) ||
     (playerSelection == `SCISSORS` && computerSelection == `PAPER`)
   ) {
     userScore++,
