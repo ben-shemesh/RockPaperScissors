@@ -11,9 +11,12 @@ function getComputerPick() {
 }
 
 function getPlayerPick() {
-  let playerPick = prompt(
-    `Choose your weapon: "Rock" "Paper" or "Scissors".`
-  ).toUpperCase();
+  let playerPick;
+  if (buttons == document.getElementsByClassName(".rock"))
+    return alert(`rock!!`);
+  //  = prompt(
+  //   `Choose your weapon: "Rock" "Paper" or "Scissors".`
+  // ).toUpperCase();
   return playerPick;
 }
 
@@ -22,45 +25,48 @@ function playRound(computerSelection, playerSelection) {
   playerSelection = getPlayerPick();
   if (computerSelection == playerSelection) {
     tieScore++;
-    return alert(
-      `It's a tie 🪢 : Your Score: ${userScore}, Computer's Score: ${computerScore}. It's the ${round} round.`
-    );
+    return `It's a tie 🪢 : Your Score: ${userScore}, Computer's Score: ${computerScore}. It's the ${round} round.`;
   } else if (
     (playerSelection == `ROCK` && computerSelection == `SCISSORS`) ||
     (playerSelection == "PAPER" && computerSelection == `ROCK`) ||
     (playerSelection == `SCISSORS` && computerSelection == `PAPER`)
   ) {
     userScore++;
-    return alert(
-      `You win 😃 : Your Score: ${userScore}, Computer's Score: ${computerScore}. It's the ${round} round.`
-    );
+    return `You win 😃 : Your Score: ${userScore}, Computer's Score: ${computerScore}. It's the ${round} round.`;
   } else {
     computerScore++;
-    return alert(
-      `You loose 😞 : Your Score: ${userScore}, Computer's Score: ${computerScore}. It's the ${round} round.`
-    );
+    return `You loose 😞 : Your Score: ${userScore}, Computer's Score: ${computerScore}. It's the ${round} round.`;
   }
 }
 function scoreChecker() {
   if (userScore > computerScore) {
-    return alert(
-      `🎉🥳🎊 You win the game. 🎉🥳🎊.The score was: Your Score :${userScore} to the Computer's : ${computerScore}, with ${tieScore} ties.`
-    );
+    return `🎉🥳🎊 You win the game. 🎉🥳🎊.The score was: Your Score :${userScore} to the Computer's : ${computerScore}, with ${tieScore} ties.`;
   } else if (userScore < computerScore) {
-    return alert(
-      `😞😞😞 You loose the game. 😞😞😞. The score was: Your Score :${userScore} to the Computer's :${computerScore}, with ${tieScore} ties.`
-    );
+    return `😞😞😞 You loose the game. 😞😞😞. The score was: Your Score :${userScore} to the Computer's :${computerScore}, with ${tieScore} ties.`;
   } else {
-    return alert(
-      `🪢🪢🪢 It's a tie 🪢🪢🪢.The score was: Your Score: ${userScore} to the Computer's :${computerScore}, with ${tieScore} ties.`
-    );
+    return `🪢🪢🪢 It's a tie 🪢🪢🪢.The score was: Your Score: ${userScore} to the Computer's :${computerScore}, with ${tieScore} ties.`;
   }
 }
-function playGame() {
-  while (userScore <= 5 && computerScore <= 5) {
-    playRound();
-    round++;
-  }
-  scoreChecker();
-}
-playGame();
+// function playGame() {
+//   while (userScore <= 5 && computerScore <= 5) {
+//     playRound();
+//     round++;
+//   }
+//   scoreChecker();
+// }
+// playGame();
+
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    alert(`test`);
+  });
+});
+// const rockButton = document.querySelector(".rock");
+// rockButton.addEventListener("click", playRound);
+
+// const paperButton = document.querySelector(".paper");
+// paperButton.addEventListener("click", playRound);
+
+// const scissorsButton = document.querySelector(".scissors");
+// scissorsButton.addEventListener("click", playRound);
