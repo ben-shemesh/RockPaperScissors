@@ -22,7 +22,7 @@ function playRound(computerSelection, playerSelection) {
   playerSelection = getPlayerPick();
   if (computerSelection == playerSelection) {
     tieScore++;
-    alert(
+    return alert(
       `It's a tie 🪢 : Your Score: ${userScore}, Computer's Score: ${computerScore}. It's the ${round} round.`
     );
   } else if (
@@ -30,34 +30,34 @@ function playRound(computerSelection, playerSelection) {
     (playerSelection == "PAPER" && computerSelection == `ROCK`) ||
     (playerSelection == `SCISSORS` && computerSelection == `PAPER`)
   ) {
-    userScore++,
-      alert(
-        `You win 😃 : Your Score: ${userScore}, Computer's Score: ${computerScore}. It's the ${round} round.`
-      );
+    userScore++;
+    return alert(
+      `You win 😃 : Your Score: ${userScore}, Computer's Score: ${computerScore}. It's the ${round} round.`
+    );
   } else {
-    computerScore++,
-      alert(
-        `You loose 😞 : Your Score: ${userScore}, Computer's Score: ${computerScore}. It's the ${round} round.`
-      );
+    computerScore++;
+    return alert(
+      `You loose 😞 : Your Score: ${userScore}, Computer's Score: ${computerScore}. It's the ${round} round.`
+    );
   }
 }
 function scoreChecker() {
   if (userScore > computerScore) {
-    alert(
+    return alert(
       `🎉🥳🎊 You win the game. 🎉🥳🎊.The score was: Your Score :${userScore} to the Computer's : ${computerScore}, with ${tieScore} ties.`
     );
   } else if (userScore < computerScore) {
-    alert(
+    return alert(
       `😞😞😞 You loose the game. 😞😞😞. The score was: Your Score :${userScore} to the Computer's :${computerScore}, with ${tieScore} ties.`
     );
   } else {
-    alert(
+    return alert(
       `🪢🪢🪢 It's a tie 🪢🪢🪢.The score was: Your Score: ${userScore} to the Computer's :${computerScore}, with ${tieScore} ties.`
     );
   }
 }
 function playGame() {
-  while (round < 6) {
+  while (userScore <= 5 && computerScore <= 5) {
     playRound();
     round++;
   }
