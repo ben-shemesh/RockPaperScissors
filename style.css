@@ -1,0 +1,22 @@
+.title-container {
+  display: flex;
+  flex-direction: row;
+  border: solid 3px purple;
+  justify-content: center;
+}
+
+.intro-instructions {
+  border: red 3px solid;
+}
+.hey-rules {
+  border: 3px green solid;
+  text-align: center;
+}
+.rules {
+  text-align: center;
+  list-style-type: none;
+  font-size: 20px;
+}
+.buttons {
+  display: flex;
+}
