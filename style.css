@@ -1,3 +1,9 @@
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 50px 50px;
+  flex-grow: 0;
+}
 .title-container {
   display: flex;
   flex-direction: row;
@@ -19,4 +25,18 @@
 }
 .buttons {
   display: flex;
+  border: 3px yellow solid;
+  align-items: center;
+  justify-content: center;
+}
+button {
+  border: 4px blue solid;
+  margin: 13px;
+  padding: 5px;
+}
+.info-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
