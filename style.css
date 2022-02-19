@@ -3,34 +3,43 @@ body {
   flex-direction: column;
   margin: 50px 50px;
   flex-grow: 0;
+  align-items: center;
+  justify-content: center;
+  /* border: 3px greenyellow solid; */
+  height: 700px;
+}
+.outer-container {
+  display: flex;
+  flex-direction: column;
+  /* border: 3px orange solid; */
 }
 .title-container {
   display: flex;
   flex-direction: row;
-  border: solid 3px purple;
+  /* border: solid 3px purple; */
   justify-content: center;
+  margin-bottom: 20px;
 }
 
-.intro-instructions {
-  border: red 3px solid;
-}
 .hey-rules {
-  border: 3px green solid;
+  /* border: 3px green solid; */
   text-align: center;
+  margin-bottom: 20px;
 }
 .rules {
   text-align: center;
   list-style-type: none;
   font-size: 20px;
+  /* border: 3px pink solid; */
 }
 .buttons {
   display: flex;
-  border: 3px yellow solid;
+  /* border: 3px yellow solid; */
   align-items: center;
   justify-content: center;
 }
 button {
-  border: 4px blue solid;
+  /* border: 4px blue solid; */
   margin: 13px;
   padding: 5px;
 }
