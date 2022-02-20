@@ -1,12 +1,17 @@
 body {
   display: flex;
   flex-direction: column;
-  margin: 50px 50px;
+  margin: 100px 100px;
   flex-grow: 0;
-  align-items: center;
+  background-color: rgb(22, 22, 22);
+  color: wheat;
+  /* align-items: center; */
   justify-content: center;
-  /* border: 3px greenyellow solid; */
+  border: 3px greenyellow solid;
   height: 700px;
+  color: white;
+  text-shadow: 5px 5px 5px rgb(48, 31, 206), 0 0 35px rgb(29, 245, 191),
+    0 0 5px darkblue;
 }
 .outer-container {
   display: flex;
@@ -40,8 +45,17 @@ body {
 }
 button {
   /* border: 4px blue solid; */
-  margin: 13px;
+  margin: 10px;
   padding: 5px;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 5px 18px #65f76c;
+}
+button {
+  transition: all 0.7s ease-in-out;
+}
+button:hover {
+  transform: scale(1.5);
 }
 .info-display {
   display: flex;

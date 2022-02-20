@@ -1,5 +1,5 @@
 // Global variables
-let round = 1;
+let roundCount = 1;
 let userScore = 0;
 let computerScore = 0;
 let tieScore = 0;
@@ -7,41 +7,48 @@ let tieScore = 0;
 let scissors = document.querySelector(".scissors");
 let rock = document.querySelector(".rock");
 let paper = document.querySelector(".paper");
-let roundCount = document.querySelector(".round");
+let roundNum = document.querySelector(".roundNum");
+let results = document.querySelector(".results");
+let pointCount = document.querySelector(".pointCount");
+let picks = document.querySelector(".player-choices");
 
 // Event Listeners
-rock.addEventListener("click", () => playRound("rock"));
-paper.addEventListener("click", () => playRound("paper"));
-scissors.addEventListener("click", () => playRound("scissors"));
+rock.addEventListener("click", () => playRound("Rock"));
+paper.addEventListener("click", () => playRound("Paper"));
+scissors.addEventListener("click", () => playRound("Scissors"));
 
 function getComputerPick() {
   let computerPick = Math.floor(Math.random() * 3) + 1;
-  if (computerPick == 1) return `rock`;
-  else if (computerPick == 2) return `paper`;
-  else return `scissors`;
+  if (computerPick == 1) return `Rock`;
+  else if (computerPick == 2) return `Paper`;
+  else return `Scissors`;
 }
 
 function playRound(playerSelection) {
   let computerSelection = getComputerPick();
   if (computerSelection == playerSelection) {
+    roundNum.textContent = `Round ${roundCount}`;
     tieScore++;
-    console.log(
-      `It's a tie 🪢 : Your Score: ${userScore}, Computer's Score: ${computerScore}. It's the ${round} round.`
-    );
+    results.textContent = `🤜🤛 It's a tie! 🤜🤛`;
+    pointCount.textContent = `Your Score: ${userScore}, Computer's Score: ${computerScore}`;
   } else if (
-    (playerSelection == `rock` && computerSelection == `scissors`) ||
-    (playerSelection == "paper" && computerSelection == `rock`) ||
-    (playerSelection == `scissors` && computerSelection == `paper`)
+    (playerSelection == `Rock` && computerSelection == `Scissors`) ||
+    (playerSelection == "Paper" && computerSelection == `Rock`) ||
+    (playerSelection == `Scissors` && computerSelection == `Paper`)
   ) {
+    roundNum.textContent = `Round ${roundCount}`;
     userScore++;
-    console.log(
-      `You win 😃 : Your Score: ${userScore}, Computer's Score: ${computerScore}. The Computer chose: ${computerSelection}. It's the ${round} round.`
-    );
-  } else {
+    results.textContent = `You win 😃 : ${playerSelection} Beats Computer's ${computerSelection}.`;
+    pointCount.textContent = `Your Score: ${userScore}, Computer's Score: ${computerScore}`;
+  } else if (
+    (computerSelection == "Rock" && playerSelection == "Scissors") ||
+    (computerSelection == "Paper" && playerSelection == "Rock") ||
+    (computerSelection == "Scissors" && playerSelection == "Paper")
+  ) {
+    roundNum.textContent = `Round ${roundCount}`;
     computerScore++;
-    console.log(
-      `You loose 😞 : Your Score: ${userScore}, Computer's Score: ${computerScore}. The Computer chose: ${computerSelection}. It's the ${round} round.`
-    );
+    results.textContent = `You loose 😞 : Computer's ${computerSelection} Beats Your ${playerSelection} .`;
+    pointCount.textContent = `Your Score: ${userScore}, Computer's Score: ${computerScore}`;
   }
 }
 function scoreChecker() {
@@ -62,7 +69,7 @@ function scoreChecker() {
 // function playGame() {
 //   while (userScore < 5 && computerScore < 5) {
 //     playRound();
-//     round++;
+//     roundCount++;
 //   }
 //   scoreChecker();
 // }
