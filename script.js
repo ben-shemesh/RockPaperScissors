@@ -71,10 +71,3 @@ function playRound(playerSelection) {
     restartGame();
   }
 }
-function scoreChecker() {
-  if (userScore > computerScore) {
-    results.textContent = `🎉🥳🎊 You win the game. 🎉🥳🎊.The score was: Your Score :${userScore} to the Computer's : ${computerScore}, with ${tieScore} ties.`;
-  } else if (userScore < computerScore) {
-    results.textContent = `😞😞😞 You loose the game. 😞😞😞. The score was: Your Score :${userScore} to the Computer's :${computerScore}, with ${tieScore} ties.`;
-  }
-}
