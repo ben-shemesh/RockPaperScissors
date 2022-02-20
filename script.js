@@ -11,6 +11,7 @@ let roundNum = document.querySelector(".roundNum");
 let results = document.querySelector(".results");
 let pointCount = document.querySelector(".pointCount");
 let picks = document.querySelector(".player-choices");
+let start = document.querySelector(".start-button");
 
 // Event Listeners
 rock.addEventListener("click", () => playRound("Rock"));
@@ -27,7 +28,7 @@ function getComputerPick() {
 function playRound(playerSelection) {
   let computerSelection = getComputerPick();
   if (computerSelection == playerSelection) {
-    roundNum.textContent = `Round ${roundCount}`;
+    roundNum.textContent = `Round ${roundCount++}`;
     tieScore++;
     results.textContent = `🤜🤛 It's a tie! 🤜🤛`;
     pointCount.textContent = `Your Score: ${userScore}, Computer's Score: ${computerScore}`;
@@ -36,7 +37,7 @@ function playRound(playerSelection) {
     (playerSelection == "Paper" && computerSelection == `Rock`) ||
     (playerSelection == `Scissors` && computerSelection == `Paper`)
   ) {
-    roundNum.textContent = `Round ${roundCount}`;
+    roundNum.textContent = `Round ${roundCount++}`;
     userScore++;
     results.textContent = `You win 😃 : ${playerSelection} Beats Computer's ${computerSelection}.`;
     pointCount.textContent = `Your Score: ${userScore}, Computer's Score: ${computerScore}`;
@@ -45,7 +46,7 @@ function playRound(playerSelection) {
     (computerSelection == "Paper" && playerSelection == "Rock") ||
     (computerSelection == "Scissors" && playerSelection == "Paper")
   ) {
-    roundNum.textContent = `Round ${roundCount}`;
+    roundNum.textContent = `Round ${roundCount++}`;
     computerScore++;
     results.textContent = `You loose 😞 : Computer's ${computerSelection} Beats Your ${playerSelection} .`;
     pointCount.textContent = `Your Score: ${userScore}, Computer's Score: ${computerScore}`;
@@ -53,24 +54,8 @@ function playRound(playerSelection) {
 }
 function scoreChecker() {
   if (userScore > computerScore) {
-    console.log(
-      `🎉🥳🎊 You win the game. 🎉🥳🎊.The score was: Your Score :${userScore} to the Computer's : ${computerScore}, with ${tieScore} ties.`
-    );
+    results.textContent = `🎉🥳🎊 You win the game. 🎉🥳🎊.The score was: Your Score :${userScore} to the Computer's : ${computerScore}, with ${tieScore} ties.`;
   } else if (userScore < computerScore) {
-    console.log(
-      `😞😞😞 You loose the game. 😞😞😞. The score was: Your Score :${userScore} to the Computer's :${computerScore}, with ${tieScore} ties.`
-    );
-  } else {
-    console.log(
-      `🪢🪢🪢 It's a tie 🪢🪢🪢.The score was: Your Score: ${userScore} to the Computer's :${computerScore}, with ${tieScore} ties.`
-    );
+    results.textContent = `😞😞😞 You loose the game. 😞😞😞. The score was: Your Score :${userScore} to the Computer's :${computerScore}, with ${tieScore} ties.`;
   }
 }
-// function playGame() {
-//   while (userScore < 5 && computerScore < 5) {
-//     playRound();
-//     roundCount++;
-//   }
-//   scoreChecker();
-// }
-// playGame();
