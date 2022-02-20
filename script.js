@@ -3,6 +3,7 @@ let roundCount = 1;
 let userScore = 0;
 let computerScore = 0;
 let tieScore = 0;
+
 // DOM variables
 let scissors = document.querySelector(".scissors");
 let rock = document.querySelector(".rock");
@@ -10,7 +11,7 @@ let paper = document.querySelector(".paper");
 let roundNum = document.querySelector(".roundNum");
 let results = document.querySelector(".results");
 let pointCount = document.querySelector(".pointCount");
-let picks = document.querySelector(".player-choices");
+let picks = document.querySelector(".selectionChoices");
 let start = document.querySelector(".start-button");
 
 // Event Listeners
@@ -25,8 +26,24 @@ function getComputerPick() {
   else return `Scissors`;
 }
 
+function restartGame() {
+  if (userScore == 5) {
+    document.querySelector(`.text-change`).textContent = ` 🥳🎉 You Win 🎉🥳`;
+    setTimeout(function () {
+      window.location.reload();
+    }, 2000);
+  }
+  if (computerScore == 5) {
+    document.querySelector(`.text-change`).textContent = ` 🥲😞 You Lose 😞😢`;
+    setTimeout(function () {
+      window.location.reload();
+    }, 2000);
+  }
+}
+
 function playRound(playerSelection) {
   let computerSelection = getComputerPick();
+
   if (computerSelection == playerSelection) {
     roundNum.textContent = `Round ${roundCount++}`;
     tieScore++;
@@ -41,6 +58,7 @@ function playRound(playerSelection) {
     userScore++;
     results.textContent = `You win 😃 : ${playerSelection} Beats Computer's ${computerSelection}.`;
     pointCount.textContent = `Your Score: ${userScore}, Computer's Score: ${computerScore}`;
+    restartGame();
   } else if (
     (computerSelection == "Rock" && playerSelection == "Scissors") ||
     (computerSelection == "Paper" && playerSelection == "Rock") ||
@@ -50,6 +68,7 @@ function playRound(playerSelection) {
     computerScore++;
     results.textContent = `You loose 😞 : Computer's ${computerSelection} Beats Your ${playerSelection} .`;
     pointCount.textContent = `Your Score: ${userScore}, Computer's Score: ${computerScore}`;
+    restartGame();
   }
 }
 function scoreChecker() {
